@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/default_background"
+            tools:context=".ui.MainActivity">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.Accent"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+        <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                    android:paddingTop="@dimen/common_padding"
+                    android:paddingLeft="@dimen/common_padding"
+                    android:paddingRight="@dimen/common_padding"
+                    android:paddingStart="@dimen/common_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                        android:id="@+id/search_box"
+                        android:padding="8dp"
+                        android:layout_margin="@dimen/common_margin"
+                        android:background="@drawable/searchbox_background"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/search_text_size"
+                        android:textColorHint="@android:color/white"
+                        android:textColor="@android:color/white"
+                        android:hint="@string/search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/recent_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/common_padding_huge"
+                            android:textSize="20sp"
+                            android:textColor="@android:color/white"
+                            android:text="Recent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/play_songs"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/song_history_recycler_height"
+                            tools:layoutManager="LinearLayoutManager"
+                            tools:orientation="horizontal"
+                            tools:listitem="@layout/item_play_song"
+                            tools:itemCount="6"/>
+
+                    <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/common_padding_huge"
+                            android:textSize="20sp"
+                            android:textColor="@android:color/white"
+                            android:text="Results"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/searched_songs"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:layoutManager="LinearLayoutManager"
+                            tools:listitem="@layout/item_searched_song"
+                            tools:itemCount="6"/>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

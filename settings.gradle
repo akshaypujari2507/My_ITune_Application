@@ -1,0 +1,2 @@
+include ':app' ,':docs'
+rootProject.name = "My ITune Application"
